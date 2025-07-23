@@ -16,7 +16,7 @@
         /* Navigation Bar */
         .navbar {
             background: #1a2a44;
-            padding: 1rem 1rem; /* Reduced padding for compactness */
+            padding: 1rem 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -98,7 +98,7 @@
             height: 24px;
             position: absolute;
             top: 1rem;
-            right: 1rem; /* Moved to top right */
+            right: 1rem;
         }
 
         .hamburger span {
@@ -131,18 +131,19 @@
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 60px; /* Adjusted to start below navbar */
+            top: 60px;
             right: 1rem;
-            width: 200px; /* Fixed width for dropdown */
+            width: 200px;
             background: #1a2a44;
             padding: 0.5rem 0;
+            padding-left: 1rem; /* Added left padding to space out buttons */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%); /* Start hidden above */
+            transform: translateY(-100%);
             transition: transform 0.3s ease;
         }
 
         .nav-menu.active.show {
-            transform: translateY(0); /* Slide down when shown */
+            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -152,11 +153,11 @@
             }
 
             .nav-menu {
-                display: none; /* Hidden by default */
+                display: none;
             }
 
             .navbar ul {
-                display: none; /* Ensure desktop ul is hidden */
+                display: none;
             }
 
             .contact-info {
@@ -164,7 +165,7 @@
             }
 
             .nav-menu.active {
-                display: flex; /* Enabled when active */
+                display: flex;
             }
         }
 
@@ -748,17 +749,17 @@
         <div class="issues-grid">
             <div class="issue-card">
                 <h3>Air Conditioning Failure</h3>
-                <p>Experiencing warm air or unusual noises? This could indicate a failure in your AC system.</p>
+                <p>Experiencing warm air or odd noises? This may indicate an AC failure due to a dirty filter or low refrigerant. Our team at Fern's can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p>
                 <div class="cta-button" onclick="showModal('ac')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Heating System Breakdown</h3>
-                <p>Cold rooms during winter? Your heating system might need immediate attention.</p>
+                <p>Cold rooms in winter? A heating breakdown might be due to a faulty thermostat or ignition issue. Fern's technicians offer fast repairs to keep your home warm. Schedule maintenance to avoid future problems!</p>
                 <div class="cta-button" onclick="showModal('heat')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Poor Airflow</h3>
-                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort.</p>
+                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort. Fern's Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p>
                 <div class="cta-button" onclick="showModal('airflow')">Learn More</div>
             </div>
         </div>
@@ -839,17 +840,37 @@
             const navMenu = document.querySelector('.nav-menu');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            navMenu.classList.toggle('show'); // Trigger slide-down
+            navMenu.classList.toggle('show');
         }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active', 'show');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (!hamburger.contains(event.target) && !navMenu.contains(event.target) && navMenu.classList.contains('show')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active', 'show');
+            }
+        });
 
         // Modal Functions
         function showModal(type) {
             const modalContent = document.getElementById("modalContent");
             let content = "";
             if (type === 'ac') {
-                content = '<h3>Air Conditioning Failure</h3><p>Air conditioning failure is a frequent problem, especially during the hot summer months in Winnipeg. This issue can stem from various causes, including a dirty air filter, low refrigerant levels, or a malfunctioning compressor. Symptoms might include warm air blowing from the vents, unusual noises, or the system shutting off unexpectedly. If left unaddressed, it can lead to discomfort and higher energy bills. Our expert technicians at Fern\'s Heating & Air Conditioning LTD can diagnose the problem quickly and provide effective solutions to restore your comfort. Regular maintenance can prevent such issues, so consider scheduling a check-up today!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Air Conditioning Failure</h3><p>Warm air or strange noises? This could signal an AC failure from a dirty filter or low refrigerant. Fern\'s technicians can quickly diagnose and repair it. Regular maintenance prevents this issue!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             } else if (type === 'heat') {
-                content = '<h3>Heating System Breakdown</h3><p>A heating system breakdown can leave your home cold, especially in Winnipeg winters. Common causes include a faulty thermostat, ignition problems, or a malfunctioning furnace. Signs include uneven heating or no heat at all. Ignoring this can lead to frozen pipes or higher repair costs. Our team at Fern\'s Heating & Air Conditioning LTD offers rapid diagnostics and repairs to keep your home warm. Schedule a maintenance check to avoid future breakdowns!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Fern\'s offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             } else if (type === 'airflow') {
                 content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             }
