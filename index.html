@@ -94,6 +94,8 @@
             flex-direction: column;
             cursor: pointer;
             z-index: 1001;
+            width: 25px;
+            height: 19px;
         }
 
         .hamburger span {
@@ -103,6 +105,7 @@
             margin: 4px 0;
             border-radius: 2px;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -119,6 +122,11 @@
 
         .nav-menu {
             display: flex;
+            pointer-events: none;
+        }
+
+        .nav-menu.active {
+            pointer-events: auto;
         }
 
         /* Responsive Design */
@@ -140,12 +148,14 @@
                 transform: translateY(-10px);
                 opacity: 0;
                 transition: transform 0.3s ease, opacity 0.3s ease;
+                z-index: 1000;
             }
 
             .nav-menu.active {
                 display: flex;
                 transform: translateY(0);
                 opacity: 1;
+                z-index: 1000;
             }
 
             .navbar ul {
@@ -223,6 +233,11 @@
 
             .footer-column {
                 text-align: center;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                z-index: 1002;
             }
         }
 
@@ -872,22 +887,18 @@
         <h2>Contact Us</h2>
         <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-  <input type="hidden" name="form-name" value="contact" />
-  <p style="display:none">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
-
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send</button>
-</form>
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your HVAC needs" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
             <p>Phone: 204-255-2233</p>
@@ -958,20 +969,5 @@
             }
         }
     </script>
-<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-  <input type="hidden" name="form-name" value="contact" />
-  <p style="display:none">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
-
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send</button>
-</form>
+</body>
+</html>
