@@ -133,7 +133,7 @@
             left: 0;
             width: 100%;
             background: #1a2a44;
-            padding: 1.5rem 0;
+            padding: 0.5rem 0; /* Reduced padding */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -154,20 +154,19 @@
             .navbar ul {
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
+                gap: 0.5rem; /* Reduced gap */
             }
 
             .navbar li {
                 width: 80%;
                 text-align: center;
-                padding: 0.8rem 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 0.5rem 0; /* Reduced padding */
             }
 
             .navbar a {
-                font-size: 1.2rem;
+                font-size: 1rem; /* Reduced font size */
                 display: block;
-                padding: 0.5rem;
+                padding: 0.3rem;
                 border-radius: 5px;
             }
 
@@ -710,7 +709,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">Fern's HVAC</a>
-            <div class="hamburger">
+            <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
