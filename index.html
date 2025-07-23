@@ -16,7 +16,7 @@
         /* Navigation Bar */
         .navbar {
             background: #1a2a44;
-            padding: 1.5rem 2rem;
+            padding: 1rem 1rem; /* Reduced padding for compactness */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -96,8 +96,9 @@
             z-index: 1001;
             width: 30px;
             height: 24px;
-            position: relative;
-            margin-left: auto;
+            position: absolute;
+            top: 1rem;
+            right: 1rem; /* Moved to top right */
         }
 
         .hamburger span {
@@ -123,18 +124,25 @@
 
         .nav-menu {
             display: flex;
+            list-style: none;
         }
 
         .nav-menu.active {
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
+            top: 60px; /* Adjusted to start below navbar */
+            right: 1rem;
+            width: 200px; /* Fixed width for dropdown */
             background: #1a2a44;
-            padding: 0.5rem 0; /* Reduced padding */
+            padding: 0.5rem 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-100%); /* Start hidden above */
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu.active.show {
+            transform: translateY(0); /* Slide down when shown */
         }
 
         /* Responsive Design */
@@ -144,87 +152,19 @@
             }
 
             .nav-menu {
-                display: none;
-            }
-
-            .nav-menu.active {
-                display: flex;
+                display: none; /* Hidden by default */
             }
 
             .navbar ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem; /* Reduced gap */
-            }
-
-            .navbar li {
-                width: 80%;
-                text-align: center;
-                padding: 0.5rem 0; /* Reduced padding */
-            }
-
-            .navbar a {
-                font-size: 1rem; /* Reduced font size */
-                display: block;
-                padding: 0.3rem;
-                border-radius: 5px;
-            }
-
-            .navbar a:hover {
-                background: rgba(255, 111, 97, 0.1);
-                color: #ff6f61;
+                display: none; /* Ensure desktop ul is hidden */
             }
 
             .contact-info {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-            }
-
-            .testimonials h2,
-            .map h2,
-            .contact h2,
-            .about h2,
-            .issues h2 {
-                font-size: 2.2rem;
-            }
-
-            .about p,
-            .about ul li,
-            .issues p,
-            .issue-card p,
-            .modal-content p {
-                font-size: 1.1rem;
-            }
-
-            .issue-card {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .modal-content {
-                padding: 1.5rem;
-                max-width: 90%;
-            }
-
-            .modal-content h3 {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-column {
-                text-align: center;
+            .nav-menu.active {
+                display: flex; /* Enabled when active */
             }
         }
 
@@ -894,13 +834,13 @@
 
     <script>
         // Hamburger Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
             hamburger.classList.toggle('active');
-        });
+            navMenu.classList.toggle('active');
+            navMenu.classList.toggle('show'); // Trigger slide-down
+        }
 
         // Modal Functions
         function showModal(type) {
