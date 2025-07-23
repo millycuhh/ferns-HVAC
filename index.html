@@ -1,17 +1,730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fern's Heating & Air Conditioning LTD</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-      /* ... your existing CSS (same as you sent) ... */
-      /* I’m not repeating it here to keep the message clean, 
-         but include all your styles exactly as before */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a2a44;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: #f0f4f8;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .navbar a {
+            color: #f0f4f8;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ff6f61;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info a {
+            font-size: 1rem;
+            color: #f0f4f8;
+        }
+
+        .contact-info .cta-button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+
+        .phone-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f05a4f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .phone-button:hover {
+            background: #ff6f61;
+            transform: scale(1.05);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            background: #f0f4f8;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a2a44;
+                padding: 1.5rem 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transform: translateY(-10px);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .nav-menu.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .navbar li {
+                width: 80%;
+                text-align: center;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .navbar a {
+                font-size: 1.2rem;
+                display: block;
+                padding: 0.5rem;
+                border-radius: 5px;
+            }
+
+            .navbar a:hover {
+                background: rgba(255, 111, 97, 0.1);
+                color: #ff6f61;
+            }
+
+            .contact-info {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .testimonials h2,
+            .map h2,
+            .contact h2,
+            .about h2,
+            .issues h2 {
+                font-size: 2.2rem;
+            }
+
+            .about p,
+            .about ul li,
+            .issues p,
+            .issue-card p,
+            .modal-content p {
+                font-size: 1.1rem;
+            }
+
+            .issue-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .modal-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            transition: background 0.4s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e65b50;
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a2a44;
+            font-weight: 600;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Map Section */
+        .map {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #f9fafc, #fff);
+        }
+
+        .map h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a2a44;
+            font-weight: 600;
+        }
+
+        .map p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #4a5b6f;
+        }
+
+        .map iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background: #fff;
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #1a2a44;
+            font-weight: 600;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5b6f;
+            margin-bottom: 1.5rem;
+        }
+
+        .about ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about ul li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #4a5b6f;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .about ul li:before {
+            content: "•";
+            color: #ff6f61;
+            position: absolute;
+            left: 0;
+        }
+
+        .certifications {
+            margin-top: 2rem;
+        }
+
+        .certifications h3 {
+            font-size: 1.8rem;
+            color: #1a2a44;
+            margin-bottom: 1rem;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .certification {
+            background: #f9fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #4a5b6f;
+        }
+
+        /* Issues Section */
+        .issues {
+            padding: 5rem 2rem;
+            background: #f9fafc;
+            text-align: center;
+        }
+
+        .issues h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #1a2a44;
+            font-weight: 600;
+        }
+
+        .issues-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .issue-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: left;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid #e0e7ff;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .issue-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: #1a2a44;
+            font-weight: 500;
+        }
+
+        .issue-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a5b6f;
+            margin-bottom: 1.5rem;
+        }
+
+        .issue-card .cta-button {
+            padding: 0.7rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .services-overview {
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-overview h3 {
+            font-size: 2rem;
+            color: #1a2a44;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-bottom: 1rem;
+        }
+
+        .service-item h4 {
+            font-size: 1.5rem;
+            color: #1a2a44;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #4a5b6f;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(180deg, #fff, #f9fafc);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a2a44;
+            font-weight: 600;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #4a5b6f;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            font-size: 1.1rem;
+            text-align: left;
+            color: #4a5b6f;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #ff6f61;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            padding: 1.2rem;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #e65b50;
+            transform: translateY(-3px);
+        }
+
+        .contact-info-box {
+            margin-top: 2rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info-box h3 {
+            font-size: 1.8rem;
+            color: #1a2a44;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box p {
+            font-size: 1.1rem;
+            color: #4a5b6f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 700px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #4a5b6f;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ff6f61;
+        }
+
+        .modal-content h3 {
+            font-size: 2rem;
+            color: #1a2a44;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5b6f;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a2a44;
+            color: #f0f4f8;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: #f0f4f8;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff6f61;
+        }
     </style>
 </head>
 <body>
@@ -84,22 +797,14 @@
         <h2>Visit Us</h2>
         <p>1611 St Anne’s Rd, Winnipeg, MB, Canada</p>
         <p>Available 24/7 for Emergency Service</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.054805073574!2d-97.09283768424347!3d49.81813797939349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s1611%20St%20Anne%27s%20Rd%2C%20Winnipeg%2C%20MB%20R2N%200C7%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.054805073574!2d-97.09283768424347!3d49.81813797939349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s1611%20St%20Anne%27s%20Rd%2C%20Winnipeg%2C%20MB%20R2N%200C7%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <h2>About Fern's Heating & Air Conditioning LTD</h2>
-        <p>
-            At Fern's Heating & Air Conditioning LTD, we are dedicated to providing top-quality HVAC services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.
-        </p>
-        <p>
-            Our mission is to deliver reliable, efficient, and affordable heating, ventilation, and air conditioning solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.
-        </p>
+        <p>At Fern's Heating & Air Conditioning LTD, we are dedicated to providing top-quality HVAC services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.</p>
+        <p>Our mission is to deliver reliable, efficient, and affordable heating, ventilation, and air conditioning solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.</p>
         <h2>What We Offer</h2>
         <ul>
             <li>Expert installation of heating and cooling systems</li>
@@ -116,9 +821,7 @@
                 <div class="certification">EPA Section 608 Certified</div>
             </div>
         </div>
-        <p>
-            Choose Fern's for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!
-        </p>
+        <p>Choose Fern's for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!</p>
         <a href="#contact" class="cta-button">Get in Touch</a>
     </section>
 
@@ -168,25 +871,23 @@
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
         <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
-        
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-          <input type="hidden" name="form-name" value="contact" />
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
+  <input type="hidden" name="form-name" value="contact" />
+  <p style="display:none">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
 
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required />
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your Email" required />
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+  <label for="message">Message</label>
+  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
-          <button type="submit">Send</button>
-        </form>
-
+  <button type="submit">Send</button>
+</form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
             <p>Phone: 204-255-2233</p>
@@ -257,5 +958,20 @@
             }
         }
     </script>
-</body>
-</html>
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+  <input type="hidden" name="form-name" value="contact" />
+  <p style="display:none">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+  <button type="submit">Send</button>
+</form>
