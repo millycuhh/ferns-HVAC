@@ -136,7 +136,7 @@
             width: 200px;
             background: #1a2a44;
             padding: 0.5rem 0;
-            padding-left: 1rem; /* Added left padding to space out buttons */
+            padding-left: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transform: translateY(-100%);
             transition: transform 0.3s ease;
@@ -789,14 +789,25 @@
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
         <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
-        <form class="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your HVAC needs" required></textarea>
-            <button type="submit">Submit</button>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <!-- Honeypot Field (hidden from users) -->
+          <p style="display:none">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <!-- Visible Form Fields -->
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send</button>
         </form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
@@ -891,20 +902,3 @@
     </script>
 </body>
 </html>
-<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-  <input type="hidden" name="form-name" value="contact" />
-  <p style="display:none">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
-
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send</button>
-</form>
