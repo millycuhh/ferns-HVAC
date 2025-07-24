@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save On Heating & Cooling Winnipeg</title>
+    <title>Pyramid Plumbing & Heating</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         * {
@@ -11,6 +11,35 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
+        }
+
+        /* Mobile Phone Button */
+        .mobile-phone-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.8rem 1.5rem;
+            background: #f05a4f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-phone-btn:hover {
+            background: #ff6f61;
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-phone-btn {
+                display: block;
+            }
         }
 
         /* Navigation Bar */
@@ -37,12 +66,12 @@
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centered alignment */
-            gap: 2px; /* Small gap between lines */
+            align-items: center;
+            gap: 2px;
         }
 
         .logo .main-text {
-            font-size: 1.0rem; /* Reduced from 1.2rem to 1.0rem */
+            font-size: 1.0rem;
             line-height: 1.1;
             color: #f0f4f8;
             text-transform: uppercase;
@@ -50,8 +79,8 @@
         }
 
         .logo .sub-text {
-            font-size: 0.8rem; /* Smaller font for Winnipeg */
-            color: #d3dfe8; /* Lighter shade for aesthetic contrast */
+            font-size: 0.8rem;
+            color: #d3dfe8;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
@@ -185,6 +214,10 @@
 
             .nav-menu.active {
                 display: flex;
+            }
+
+            .nav-container {
+                padding-top: 3.5rem; /* Adjust for mobile phone button */
             }
         }
 
@@ -668,12 +701,15 @@
     </style>
 </head>
 <body>
+    <!-- Mobile Phone Button -->
+    <a href="tel:+12046945088" class="mobile-phone-btn">Call (204) 694-5088</a>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
-                <span class="main-text">Save On Heating & Cooling</span>
-                <span class="sub-text">Winnipeg</span>
+                <span class="main-text">Pyramid Plumbing & Heating</span>
+                <span class="sub-text"></span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -682,12 +718,12 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#issues">HVAC Issues</a></li>
+                <li><a href="#issues">Plumbing & Heating Issues</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div class="contact-info">
-                <a href="tel:+12046887597" class="phone-button">Call (204) 688-7597</a>
+                <a href="tel:+12046945088" class="phone-button">Call (204) 694-5088</a>
                 <a href="#contact" class="cta-button">Free Quote</a>
             </div>
         </div>
@@ -697,8 +733,8 @@
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Save On Heating & Cooling Winnipeg</h1>
-            <p>Your Trusted HVAC Experts in Winnipeg</p>
+            <h1>Pyramid Plumbing & Heating</h1>
+            <p>Your Trusted Plumbing & Heating Experts in Winnipeg</p>
             <div class="service-highlights">
                 <span class="highlight">24/7 Emergency Service</span>
                 <span class="highlight">Energy-Efficient Solutions</span>
@@ -714,7 +750,7 @@
         <div class="testimonial-grid">
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p>"Save On team was professional and efficient. They fixed our AC in no time!"</p>
+                <p>"Pyramid team was professional and efficient. They fixed our plumbing in no time!"</p>
                 <p><strong>- John D.</strong></p>
             </div>
             <div class="testimonial">
@@ -724,7 +760,7 @@
             </div>
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p>"Highly recommend Save On for their quick response and quality work."</p>
+                <p>"Highly recommend Pyramid for their quick response and quality work."</p>
                 <p><strong>- Michael T.</strong></p>
             </div>
             <div class="testimonial">
@@ -738,19 +774,26 @@
     <!-- Map Section -->
     <section class="map">
         <h2>Visit Us</h2>
-        <p>60 Craigmohr Dr, Winnipeg, MB R3T 6A5</p>
-        <p>Available 24/7 for Emergency Service</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583.1234567890123!2d-97.123456!3d49.876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s60%20Craigmohr%20Dr%2C%20Winnipeg%2C%20MB%20R3T%206A5%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
+        <p>1600 Church Ave, Winnipeg, MB R2X 1G8</p>
+        <p>Business Hours:</p>
+        <p>Sunday: Closed</p>
+        <p>Monday: 8 a.m.–4:30 p.m.</p>
+        <p>Tuesday: 8 a.m.–4:30 p.m.</p>
+        <p>Wednesday: 8 a.m.–4:30 p.m.</p>
+        <p>Thursday: 8 a.m.–4:30 p.m.</p>
+        <p>Friday: 8 a.m.–4:30 p.m.</p>
+        <p>Saturday: Closed</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583.1234567890123!2d-97.123456!3d49.876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s1600%20Church%20Ave%2C%20Winnipeg%2C%20MB%20R2X%201G8%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <h2>About Save On Heating & Cooling Winnipeg</h2>
-        <p>At Save On Heating & Cooling Winnipeg, we are dedicated to providing top-quality HVAC services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.</p>
-        <p>Our mission is to deliver reliable, efficient, and affordable heating, ventilation, and air conditioning solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.</p>
+        <h2>About Pyramid Plumbing & Heating</h2>
+        <p>At Pyramid Plumbing & Heating, we are dedicated to providing top-quality plumbing and heating services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.</p>
+        <p>Our mission is to deliver reliable, efficient, and affordable plumbing and heating solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.</p>
         <h2>What We Offer</h2>
         <ul>
-            <li>Expert installation of heating and cooling systems</li>
+            <li>Expert installation of plumbing and heating systems</li>
             <li>Comprehensive maintenance plans to extend system lifespan</li>
             <li>24/7 emergency repair services</li>
             <li>Energy-efficient solutions to reduce your utility bills</li>
@@ -759,47 +802,47 @@
         <div class="certifications">
             <h3>Our Certifications</h3>
             <div class="certifications-grid">
-                <div class="certification">HVAC Excellence Certified</div>
+                <div class="certification">Plumbing Excellence Certified</div>
                 <div class="certification">NATE Certified Technicians</div>
                 <div class="certification">EPA Section 608 Certified</div>
             </div>
         </div>
-        <p>Choose Save On for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!</p>
+        <p>Choose Pyramid for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!</p>
         <a href="#contact" class="cta-button">Get in Touch</a>
     </section>
 
     <!-- Issues Section -->
     <section class="issues" id="issues">
-        <h2>Common HVAC Problems</h2>
+        <h2>Common Plumbing & Heating Problems</h2>
         <div class="issues-grid">
             <div class="issue-card">
-                <h3>Air Conditioning Failure</h3>
-                <p>Experiencing warm air or odd noises? This may indicate an AC failure due to a dirty filter or low refrigerant. Our team at Save On can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p>
-                <div class="cta-button" onclick="showModal('ac')">Learn More</div>
+                <h3>Plumbing Failure</h3>
+                <p>Experiencing leaks or low water pressure? This may indicate a plumbing failure due to clogged pipes or faulty fixtures. Our team at Pyramid can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p>
+                <div class="cta-button" onclick="showModal('plumbing')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Heating System Breakdown</h3>
-                <p>Cold rooms in winter? A heating breakdown might be due to a faulty thermostat or ignition issue. Save On technicians offer fast repairs to keep your home warm. Schedule maintenance to avoid future problems!</p>
+                <p>Cold rooms in winter? A heating breakdown might be due to a faulty thermostat or ignition issue. Pyramid technicians offer fast repairs to keep your home warm. Schedule maintenance to avoid future problems!</p>
                 <div class="cta-button" onclick="showModal('heat')">Learn More</div>
             </div>
             <div class="issue-card">
-                <h3>Poor Airflow</h3>
-                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort. Save On Heating & Cooling Winnipeg can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p>
-                <div class="cta-button" onclick="showModal('airflow')">Learn More</div>
+                <h3>Poor Water Flow</h3>
+                <p>Weak water flow can signal clogged pipes or valve issues affecting your comfort. Pyramid Plumbing & Heating can inspect and resolve these issues to improve your indoor water quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p>
+                <div class="cta-button" onclick="showModal('waterflow')">Learn More</div>
             </div>
         </div>
         <div class="services-overview">
             <h3>Our Services</h3>
             <div class="services-grid">
                 <div class="service-item">
-                    <i class="fas fa-thermometer-half"></i>
+                    <i class="fas fa-plug"></i>
                     <h4>Installation</h4>
-                    <p>Expert installation of furnaces, air conditioners, and heat pumps.</p>
+                    <p>Expert installation of plumbing and heating systems.</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-tools"></i>
                     <h4>Repairs</h4>
-                    <p>Fast and reliable repair services for all HVAC systems.</p>
+                    <p>Fast and reliable repair services for all plumbing and heating systems.</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-wrench"></i>
@@ -813,7 +856,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
-        <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
+        <p>Fill out the form below to get in touch with our team for a free estimate or any plumbing and heating inquiries.</p>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
           <input type="hidden" name="form-name" value="contact" />
           
@@ -829,6 +872,9 @@
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
 
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
@@ -836,8 +882,9 @@
         </form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
-            <p>Phone: (204) 688-7597</p>
-            <p>Address: 60 Craigmohr Dr, Winnipeg, MB R3T 6A5</p>
+            <p>Phone: (204) 694-5088</p>
+            <p>Address: 1600 Church Ave, Winnipeg, MB R2X 1G8</p>
+            <p>Email: info@pyramidplumbingheating.com</p>
         </div>
     </section>
 
@@ -853,15 +900,16 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Save On Heating & Cooling Winnipeg</h3>
-                <p>Your trusted HVAC experts in Winnipeg, providing reliable and efficient solutions.</p>
-                <p>Phone: (204) 688-7597</p>
+                <h3>Pyramid Plumbing & Heating</h3>
+                <p>Your trusted plumbing and heating experts in Winnipeg, providing reliable and efficient solutions.</p>
+                <p>Phone: (204) 694-5088</p>
+                <p>Email: info@pyramidplumbingheating.com</p>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#issues">HVAC Issues</a></li>
+                    <li><a href="#issues">Plumbing & Heating Issues</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
@@ -903,12 +951,12 @@
         function showModal(type) {
             const modalContent = document.getElementById("modalContent");
             let content = "";
-            if (type === 'ac') {
-                content = '<h3>Air Conditioning Failure</h3><p>Warm air or strange noises? This could signal an AC failure from a dirty filter or low refrigerant. Save On\'s technicians can quickly diagnose and repair it. Regular maintenance prevents this issue!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+            if (type === 'plumbing') {
+                content = '<h3>Plumbing Failure</h3><p>Leaks or low water pressure? This may indicate a plumbing failure due to clogged pipes or faulty fixtures. Our team at Pyramid can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             } else if (type === 'heat') {
-                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Save On offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
-            } else if (type === 'airflow') {
-                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Save On Heating & Cooling Winnipeg can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Pyramid offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+            } else if (type === 'waterflow') {
+                content = '<h3>Poor Water Flow</h3><p>Poor water flow can make your plumbing system less effective, often due to clogged pipes, valve issues, or sediment buildup. You might notice weak pressure or inconsistent flow. This can strain your system and increase water costs. Pyramid Plumbing & Heating can inspect and resolve these issues to improve your indoor water quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             }
             modalContent.innerHTML = content;
             document.getElementById("myModal").style.display = "flex";
