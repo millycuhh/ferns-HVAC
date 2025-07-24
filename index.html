@@ -879,11 +879,11 @@
             const modalContent = document.getElementById("modalContent");
             let content = "";
             if (type === 'ac') {
-                content = '<h3>Air Conditioning Failure</h3><p>Warm air or strange noises? This could signal an AC failure from a dirty filter or low refrigerant. Fern\'s technicians can quickly diagnose and repair it. Regular maintenance prevents this issue!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Air Conditioning Failure</h3><p>Warm air or strange noises? This could signal an AC failure from a dirty filter or low refrigerant. Fern\'s technicians can quickly diagnose and repair it. Regular maintenance prevents this issue!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             } else if (type === 'heat') {
-                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Fern\'s offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Fern\'s offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             } else if (type === 'airflow') {
-                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             }
             modalContent.innerHTML = content;
             document.getElementById("myModal").style.display = "flex";
