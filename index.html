@@ -13,35 +13,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Mobile Phone Button */
-        .mobile-phone-btn {
-            display: none;
-            position: fixed;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.8rem 1.5rem;
-            background: #f05a4f;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            z-index: 2000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .mobile-phone-btn:hover {
-            background: #ff6f61;
-            transform: translateX(-50%) scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-phone-btn {
-                display: block;
-            }
-        }
-
         /* Navigation Bar */
         .navbar {
             background: #1a2a44;
@@ -214,10 +185,6 @@
 
             .nav-menu.active {
                 display: flex;
-            }
-
-            .nav-container {
-                padding-top: 3.5rem; /* Adjust for mobile phone button */
             }
         }
 
@@ -701,9 +668,6 @@
     </style>
 </head>
 <body>
-    <!-- Mobile Phone Button -->
-    <a href="tel:+12046945088" class="mobile-phone-btn">Call (204) 694-5088</a>
-
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -740,7 +704,7 @@
                 <span class="highlight">Energy-Efficient Solutions</span>
                 <span class="highlight">Certified Technicians</span>
             </div>
-            <a href="#contact" class="cta-button">Call Now for Free Estimate</a>
+            <a href="tel:+12046945088" class="cta-button">Call Now for Free Estimate</a>
         </div>
     </section>
 
