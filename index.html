@@ -16,7 +16,7 @@
         /* Navigation Bar */
         .navbar {
             background: #1a2a44;
-            padding: 1rem 1rem;
+            padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -49,7 +49,7 @@
             color: #f0f4f8;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, background 0.3s ease;
         }
 
         .navbar a:hover {
@@ -94,24 +94,22 @@
             flex-direction: column;
             cursor: pointer;
             z-index: 1001;
-            width: 30px;
-            height: 24px;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
+            width: 25px;
+            height: 19px;
         }
 
         .hamburger span {
             background: #f0f4f8;
-            height: 4px;
-            width: 30px;
-            margin: 3px 0;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
             border-radius: 2px;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
+            transform: translateY(11px) rotate(45deg);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -119,31 +117,16 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
+            transform: translateY(-11px) rotate(-45deg);
         }
 
         .nav-menu {
             display: flex;
-            list-style: none;
+            pointer-events: none;
         }
 
         .nav-menu.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 1rem;
-            width: 200px;
-            background: #1a2a44;
-            padding: 0.5rem 0;
-            padding-left: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-menu.active.show {
-            transform: translateY(0);
+            pointer-events: auto;
         }
 
         /* Responsive Design */
@@ -154,18 +137,107 @@
 
             .nav-menu {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a2a44;
+                padding: 1.5rem 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transform: translateY(-10px);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                z-index: 1000;
             }
 
             .navbar ul {
-                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .navbar li {
+                width: 80%;
+                text-align: center;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .navbar a {
+                font-size: 1.2rem;
+                display: block;
+                padding: 0.5rem;
+                border-radius: 5px;
+            }
+
+            .navbar a:hover {
+                background: rgba(255, 111, 97, 0.1);
+                color: #ff6f61;
             }
 
             .contact-info {
                 display: none;
             }
 
-            .nav-menu.active {
-                display: flex;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .testimonials h2,
+            .map h2,
+            .contact h2,
+            .about h2,
+            .issues h2 {
+                font-size: 2.2rem;
+            }
+
+            .about p,
+            .about ul li,
+            .issues p,
+            .issue-card p,
+            .modal-content p {
+                font-size: 1.1rem;
+            }
+
+            .issue-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .modal-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                z-index: 1002;
             }
         }
 
@@ -187,7 +259,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .hero-content {
@@ -200,14 +272,13 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
             font-weight: 600;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         .service-highlights {
@@ -219,11 +290,10 @@
         }
 
         .highlight {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             padding: 0.5rem 1rem;
             border-radius: 5px;
             font-size: 1rem;
-            color: #fff;
         }
 
         .cta-button {
@@ -408,6 +478,7 @@
             width: 320px;
             text-align: left;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid #e0e7ff;
         }
 
         .issue-card:hover {
@@ -521,6 +592,13 @@
             border: 1px solid #e0e7ff;
             border-radius: 8px;
             width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #ff6f61;
+            outline: none;
         }
 
         .contact-form textarea {
@@ -536,6 +614,12 @@
             border-radius: 8px;
             font-size: 1.3rem;
             cursor: pointer;
+            transition: background 0.4s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #e65b50;
+            transform: translateY(-3px);
         }
 
         .contact-info-box {
@@ -579,6 +663,7 @@
             max-width: 700px;
             text-align: left;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .close {
@@ -588,19 +673,26 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #4a5b6f;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ff6f61;
         }
 
         .modal-content h3 {
             font-size: 2rem;
             color: #1a2a44;
             margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .modal-content p {
             font-size: 1.2rem;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #4a5b6f;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
         }
 
         /* Footer */
@@ -642,6 +734,11 @@
             color: #f0f4f8;
             text-decoration: none;
             font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff6f61;
         }
     </style>
 </head>
@@ -656,10 +753,10 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#issues">HVAC Issues</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#issues" onclick="toggleMenu()">HVAC Issues</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact Us</a></li>
             </ul>
             <div class="contact-info">
                 <a href="tel:+12042552233" class="phone-button">Call 204-255-2233</a>
@@ -749,17 +846,17 @@
         <div class="issues-grid">
             <div class="issue-card">
                 <h3>Air Conditioning Failure</h3>
-                <p>Experiencing warm air or odd noises? This may indicate an AC failure due to a dirty filter or low refrigerant. Our team at Fern's can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p>
+                <p>Experiencing warm air or unusual noises? This could indicate a failure in your AC system.</p>
                 <div class="cta-button" onclick="showModal('ac')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Heating System Breakdown</h3>
-                <p>Cold rooms in winter? A heating breakdown might be due to a faulty thermostat or ignition issue. Fern's technicians offer fast repairs to keep your home warm. Schedule maintenance to avoid future problems!</p>
+                <p>Cold rooms during winter? Your heating system might need immediate attention.</p>
                 <div class="cta-button" onclick="showModal('heat')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Poor Airflow</h3>
-                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort. Fern's Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p>
+                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort.</p>
                 <div class="cta-button" onclick="showModal('airflow')">Learn More</div>
             </div>
         </div>
@@ -790,24 +887,17 @@
         <h2>Contact Us</h2>
         <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-          <input type="hidden" name="form-name" value="contact" />
-          
-          <!-- Honeypot Field (hidden from users) -->
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
-
-          <!-- Visible Form Fields -->
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
-          <button type="submit">Send</button>
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your HVAC needs" required></textarea>
+            <button type="submit">Submit</button>
         </form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
@@ -847,43 +937,22 @@
     <script>
         // Hamburger Menu Toggle
         function toggleMenu() {
-            const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
-            hamburger.classList.toggle('active');
+            const hamburger = document.querySelector('.hamburger');
             navMenu.classList.toggle('active');
-            navMenu.classList.toggle('show');
+            hamburger.classList.toggle('active');
         }
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                const hamburger = document.querySelector('.hamburger');
-                const navMenu = document.querySelector('.nav-menu');
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active', 'show');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            if (!hamburger.contains(event.target) && !navMenu.contains(event.target) && navMenu.classList.contains('show')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active', 'show');
-            }
-        });
 
         // Modal Functions
         function showModal(type) {
             const modalContent = document.getElementById("modalContent");
             let content = "";
             if (type === 'ac') {
-                content = '<h3>Air Conditioning Failure</h3><p>Warm air or strange noises? This could signal an AC failure from a dirty filter or low refrigerant. Fern\'s technicians can quickly diagnose and repair it. Regular maintenance prevents this issue!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+                content = '<h3>Air Conditioning Failure</h3><p>Air conditioning failure is a frequent problem, especially during the hot summer months in Winnipeg. This issue can stem from various causes, including a dirty air filter, low refrigerant levels, or a malfunctioning compressor. Symptoms might include warm air blowing from the vents, unusual noises, or the system shutting off unexpectedly. If left unaddressed, it can lead to discomfort and higher energy bills. Our expert technicians at Fern\'s Heating & Air Conditioning LTD can diagnose the problem quickly and provide effective solutions to restore your comfort. Regular maintenance can prevent such issues, so consider scheduling a check-up today!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             } else if (type === 'heat') {
-                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Fern\'s offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+                content = '<h3>Heating System Breakdown</h3><p>A heating system breakdown can leave your home cold, especially in Winnipeg winters. Common causes include a faulty thermostat, ignition problems, or a malfunctioning furnace. Signs include uneven heating or no heat at all. Ignoring this can lead to frozen pipes or higher repair costs. Our team at Fern\'s Heating & Air Conditioning LTD offers rapid diagnostics and repairs to keep your home warm. Schedule a maintenance check to avoid future breakdowns!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             } else if (type === 'airflow') {
-                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
             }
             modalContent.innerHTML = content;
             document.getElementById("myModal").style.display = "flex";
@@ -895,7 +964,7 @@
 
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
