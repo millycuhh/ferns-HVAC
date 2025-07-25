@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fern's Heating & Air Conditioning LTD</title>
+    <title>Pyramid Plumbing & Heating</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         * {
@@ -16,7 +16,7 @@
         /* Navigation Bar */
         .navbar {
             background: #1a2a44;
-            padding: 1.5rem 2rem;
+            padding: 1rem 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -33,9 +33,28 @@
 
         .logo {
             color: #f0f4f8;
-            font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo .main-text {
+            font-size: 1.0rem;
+            line-height: 1.1;
+            color: #f0f4f8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo .sub-text {
+            font-size: 0.8rem;
+            color: #d3dfe8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .navbar ul {
@@ -49,7 +68,7 @@
             color: #f0f4f8;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: color 0.3s ease, background 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .navbar a:hover {
@@ -94,22 +113,24 @@
             flex-direction: column;
             cursor: pointer;
             z-index: 1001;
-            width: 25px;
-            height: 19px;
+            width: 30px;
+            height: 24px;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
         }
 
         .hamburger span {
             background: #f0f4f8;
-            height: 3px;
-            width: 25px;
-            margin: 4px 0;
+            height: 4px;
+            width: 30px;
+            margin: 3px 0;
             border-radius: 2px;
             transition: all 0.3s ease;
-            pointer-events: none;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: translateY(11px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -117,16 +138,31 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-11px) rotate(-45deg);
+            transform: translateY(-10px) rotate(-45deg);
         }
 
         .nav-menu {
             display: flex;
-            pointer-events: none;
+            list-style: none;
         }
 
         .nav-menu.active {
-            pointer-events: auto;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 1rem;
+            width: 200px;
+            background: #1a2a44;
+            padding: 0.5rem 0;
+            padding-left: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu.active.show {
+            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -137,107 +173,18 @@
 
             .nav-menu {
                 display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: #1a2a44;
-                padding: 1.5rem 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                transform: translateY(-10px);
-                opacity: 0;
-                transition: transform 0.3s ease, opacity 0.3s ease;
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-                z-index: 1000;
             }
 
             .navbar ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .navbar li {
-                width: 80%;
-                text-align: center;
-                padding: 0.8rem 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .navbar a {
-                font-size: 1.2rem;
-                display: block;
-                padding: 0.5rem;
-                border-radius: 5px;
-            }
-
-            .navbar a:hover {
-                background: rgba(255, 111, 97, 0.1);
-                color: #ff6f61;
+                display: none;
             }
 
             .contact-info {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-            }
-
-            .testimonials h2,
-            .map h2,
-            .contact h2,
-            .about h2,
-            .issues h2 {
-                font-size: 2.2rem;
-            }
-
-            .about p,
-            .about ul li,
-            .issues p,
-            .issue-card p,
-            .modal-content p {
-                font-size: 1.1rem;
-            }
-
-            .issue-card {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .modal-content {
-                padding: 2rem;
-                max-width: 90%;
-            }
-
-            .modal-content h3 {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-column {
-                text-align: center;
-            }
-
-            .contact-form input:focus,
-            .contact-form textarea:focus {
-                z-index: 1002;
+            .nav-menu.active {
+                display: flex;
             }
         }
 
@@ -259,7 +206,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero-content {
@@ -272,13 +219,16 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 5px rgba(255, 255, 255, 0.3);
             font-weight: 600;
+            color: #ffffff;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.6), 0 0 3px rgba(255, 255, 255, 0.2);
+            color: #ffffff;
         }
 
         .service-highlights {
@@ -290,10 +240,12 @@
         }
 
         .highlight {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             padding: 0.5rem 1rem;
             border-radius: 5px;
             font-size: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
         }
 
         .cta-button {
@@ -478,7 +430,6 @@
             width: 320px;
             text-align: left;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid #e0e7ff;
         }
 
         .issue-card:hover {
@@ -592,13 +543,6 @@
             border: 1px solid #e0e7ff;
             border-radius: 8px;
             width: 100%;
-            transition: border-color 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #ff6f61;
-            outline: none;
         }
 
         .contact-form textarea {
@@ -614,12 +558,6 @@
             border-radius: 8px;
             font-size: 1.3rem;
             cursor: pointer;
-            transition: background 0.4s ease, transform 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: #e65b50;
-            transform: translateY(-3px);
         }
 
         .contact-info-box {
@@ -663,7 +601,6 @@
             max-width: 700px;
             text-align: left;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .close {
@@ -673,26 +610,19 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #4a5b6f;
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: #ff6f61;
         }
 
         .modal-content h3 {
             font-size: 2rem;
             color: #1a2a44;
             margin-bottom: 1.5rem;
-            font-weight: 600;
         }
 
         .modal-content p {
             font-size: 1.2rem;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #4a5b6f;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
         }
 
         /* Footer */
@@ -734,11 +664,6 @@
             color: #f0f4f8;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: #ff6f61;
         }
     </style>
 </head>
@@ -746,20 +671,23 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">Fern's HVAC</a>
+            <a href="#home" class="logo">
+                <span class="main-text">Pyramid Plumbing & Heating</span>
+                <span class="sub-text"></span>
+            </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-                <li><a href="#issues" onclick="toggleMenu()">HVAC Issues</a></li>
-                <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact Us</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#issues">Plumbing & Heating Issues</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
             <div class="contact-info">
-                <a href="tel:+12042552233" class="phone-button">Call 204-255-2233</a>
+                <a href="tel:+12046945088" class="phone-button">Call (204) 694-5088</a>
                 <a href="#contact" class="cta-button">Free Quote</a>
             </div>
         </div>
@@ -769,24 +697,24 @@
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Fern's Heating & Air Conditioning LTD</h1>
-            <p>Your Trusted HVAC Experts in Winnipeg</p>
+            <h1>Pyramid Plumbing & Heating</h1>
+            <p>Your Trusted Plumbing & Heating Experts in Winnipeg</p>
             <div class="service-highlights">
                 <span class="highlight">24/7 Emergency Service</span>
                 <span class="highlight">Energy-Efficient Solutions</span>
                 <span class="highlight">Certified Technicians</span>
             </div>
-            <a href="#contact" class="cta-button">Call Now for Free Estimate</a>
+            <a href="tel:+12046945088" class="cta-button">Call Now for Free Estimate</a>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <h2>Over 150+ 5-Star Reviews</h2>
+        <h2>Over 50+ 5-Star Reviews</h2>
         <div class="testimonial-grid">
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p>"Fern's team was professional and efficient. They fixed our AC in no time!"</p>
+                <p>"Pyramid team was professional and efficient. They fixed our plumbing in no time!"</p>
                 <p><strong>- John D.</strong></p>
             </div>
             <div class="testimonial">
@@ -796,7 +724,7 @@
             </div>
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p>"Highly recommend Fern's for their quick response and quality work."</p>
+                <p>"Highly recommend Pyramid for their quick response and quality work."</p>
                 <p><strong>- Michael T.</strong></p>
             </div>
             <div class="testimonial">
@@ -810,19 +738,26 @@
     <!-- Map Section -->
     <section class="map">
         <h2>Visit Us</h2>
-        <p>1611 St Anne’s Rd, Winnipeg, MB, Canada</p>
-        <p>Available 24/7 for Emergency Service</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.054805073574!2d-97.09283768424347!3d49.81813797939349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s1611%20St%20Anne%27s%20Rd%2C%20Winnipeg%2C%20MB%20R2N%200C7%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
+        <p>1600 Church Ave, Winnipeg, MB R2X 1G8</p>
+        <p>Business Hours:</p>
+        <p>Sunday: Closed</p>
+        <p>Monday: 8 a.m.–4:30 p.m.</p>
+        <p>Tuesday: 8 a.m.–4:30 p.m.</p>
+        <p>Wednesday: 8 a.m.–4:30 p.m.</p>
+        <p>Thursday: 8 a.m.–4:30 p.m.</p>
+        <p>Friday: 8 a.m.–4:30 p.m.</p>
+        <p>Saturday: Closed</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583.1234567890123!2d-97.123456!3d49.876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73b7b9e6e5b7%3A0x7e7e9f6f5c7b6f9!2s1600%20Church%20Ave%2C%20Winnipeg%2C%20MB%20R2X%201G8%2C%20Canada!5e0!3m2!1sen!2sca!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <h2>About Fern's Heating & Air Conditioning LTD</h2>
-        <p>At Fern's Heating & Air Conditioning LTD, we are dedicated to providing top-quality HVAC services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.</p>
-        <p>Our mission is to deliver reliable, efficient, and affordable heating, ventilation, and air conditioning solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.</p>
+        <h2>About Pyramid Plumbing & Heating</h2>
+        <p>At Pyramid Plumbing & Heating, we are dedicated to providing top-quality plumbing and heating services to the Winnipeg community. With years of experience in the industry, our team of certified professionals is committed to ensuring your home or business stays comfortable year-round.</p>
+        <p>Our mission is to deliver reliable, efficient, and affordable plumbing and heating solutions tailored to your needs. Whether it's installing a new system, performing routine maintenance, or handling emergency repairs, we bring expertise and a customer-first approach to every job.</p>
         <h2>What We Offer</h2>
         <ul>
-            <li>Expert installation of heating and cooling systems</li>
+            <li>Expert installation of plumbing and heating systems</li>
             <li>Comprehensive maintenance plans to extend system lifespan</li>
             <li>24/7 emergency repair services</li>
             <li>Energy-efficient solutions to reduce your utility bills</li>
@@ -831,47 +766,47 @@
         <div class="certifications">
             <h3>Our Certifications</h3>
             <div class="certifications-grid">
-                <div class="certification">HVAC Excellence Certified</div>
+                <div class="certification">Plumbing Excellence Certified</div>
                 <div class="certification">NATE Certified Technicians</div>
                 <div class="certification">EPA Section 608 Certified</div>
             </div>
         </div>
-        <p>Choose Fern's for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!</p>
+        <p>Choose Pyramid for unparalleled service and peace of mind. Contact us today to learn how we can keep your space comfortable!</p>
         <a href="#contact" class="cta-button">Get in Touch</a>
     </section>
 
     <!-- Issues Section -->
     <section class="issues" id="issues">
-        <h2>Common HVAC Problems</h2>
+        <h2>Common Plumbing & Heating Problems</h2>
         <div class="issues-grid">
             <div class="issue-card">
-                <h3>Air Conditioning Failure</h3>
-                <p>Experiencing warm air or unusual noises? This could indicate a failure in your AC system.</p>
-                <div class="cta-button" onclick="showModal('ac')">Learn More</div>
+                <h3>Plumbing Failure</h3>
+                <p>Experiencing leaks or low water pressure? This may indicate a plumbing failure due to clogged pipes or faulty fixtures. Our team at Pyramid can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p>
+                <div class="cta-button" onclick="showModal('plumbing')">Learn More</div>
             </div>
             <div class="issue-card">
                 <h3>Heating System Breakdown</h3>
-                <p>Cold rooms during winter? Your heating system might need immediate attention.</p>
+                <p>Cold rooms in winter? A heating breakdown might be due to a faulty thermostat or ignition issue. Pyramid technicians offer fast repairs to keep your home warm. Schedule maintenance to avoid future problems!</p>
                 <div class="cta-button" onclick="showModal('heat')">Learn More</div>
             </div>
             <div class="issue-card">
-                <h3>Poor Airflow</h3>
-                <p>Weak airflow can signal clogged filters or duct issues affecting your comfort.</p>
-                <div class="cta-button" onclick="showModal('airflow')">Learn More</div>
+                <h3>Poor Water Flow</h3>
+                <p>Weak water flow can signal clogged pipes or valve issues affecting your comfort. Pyramid Plumbing & Heating can inspect and resolve these issues to improve your indoor water quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p>
+                <div class="cta-button" onclick="showModal('waterflow')">Learn More</div>
             </div>
         </div>
         <div class="services-overview">
             <h3>Our Services</h3>
             <div class="services-grid">
                 <div class="service-item">
-                    <i class="fas fa-thermometer-half"></i>
+                    <i class="fas fa-plug"></i>
                     <h4>Installation</h4>
-                    <p>Expert installation of furnaces, air conditioners, and heat pumps.</p>
+                    <p>Expert installation of plumbing and heating systems.</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-tools"></i>
                     <h4>Repairs</h4>
-                    <p>Fast and reliable repair services for all HVAC systems.</p>
+                    <p>Fast and reliable repair services for all plumbing and heating systems.</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-wrench"></i>
@@ -885,24 +820,35 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
-        <p>Fill out the form below to get in touch with our team for a free estimate or any HVAC inquiries.</p>
+        <p>Fill out the form below to get in touch with our team for a free estimate or any plumbing and heating inquiries.</p>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-            <input type="hidden" name="form-name" value="contact" />
-            <p style="display:none">
-                <label>Don’t fill this out: <input name="bot-field" /></label>
-            </p>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your HVAC needs" required></textarea>
-            <button type="submit">Submit</button>
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <!-- Honeypot Field (hidden from users) -->
+          <p style="display:none">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <!-- Visible Form Fields -->
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send</button>
         </form>
         <div class="contact-info-box">
             <h3>Contact Information</h3>
-            <p>Phone: 204-255-2233</p>
-            <p>Address: 1611 St Anne’s Rd, Winnipeg, MB, Canada</p>
+            <p>Phone: (204) 694-5088</p>
+            <p>Address: 1600 Church Ave, Winnipeg, MB R2X 1G8</p>
+            <p>Email: info@pyramidplumbingheating.com</p>
         </div>
     </section>
 
@@ -918,15 +864,16 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Fern's HVAC</h3>
-                <p>Your trusted HVAC experts in Winnipeg, providing reliable and efficient solutions.</p>
-                <p>Phone: 204-255-2233</p>
+                <h3>Pyramid Plumbing & Heating</h3>
+                <p>Your trusted plumbing and heating experts in Winnipeg, providing reliable and efficient solutions.</p>
+                <p>Phone: (204) 694-5088</p>
+                <p>Email: info@pyramidplumbingheating.com</p>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#issues">HVAC Issues</a></li>
+                    <li><a href="#issues">Plumbing & Heating Issues</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
@@ -937,22 +884,43 @@
     <script>
         // Hamburger Menu Toggle
         function toggleMenu() {
-            const navMenu = document.querySelector('.nav-menu');
             const hamburger = document.querySelector('.hamburger');
-            navMenu.classList.toggle('active');
+            const navMenu = document.querySelector('.nav-menu');
             hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            navMenu.classList.toggle('show');
         }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active', 'show');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (!hamburger.contains(event.target) && !navMenu.contains(event.target) && navMenu.classList.contains('show')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active', 'show');
+            }
+        });
 
         // Modal Functions
         function showModal(type) {
             const modalContent = document.getElementById("modalContent");
             let content = "";
-            if (type === 'ac') {
-                content = '<h3>Air Conditioning Failure</h3><p>Air conditioning failure is a frequent problem, especially during the hot summer months in Winnipeg. This issue can stem from various causes, including a dirty air filter, low refrigerant levels, or a malfunctioning compressor. Symptoms might include warm air blowing from the vents, unusual noises, or the system shutting off unexpectedly. If left unaddressed, it can lead to discomfort and higher energy bills. Our expert technicians at Fern\'s Heating & Air Conditioning LTD can diagnose the problem quickly and provide effective solutions to restore your comfort. Regular maintenance can prevent such issues, so consider scheduling a check-up today!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+            if (type === 'plumbing') {
+                content = '<h3>Plumbing Failure</h3><p>Leaks or low water pressure? This may indicate a plumbing failure due to clogged pipes or faulty fixtures. Our team at Pyramid can quickly diagnose and fix it to restore your comfort. Regular maintenance helps prevent this issue!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             } else if (type === 'heat') {
-                content = '<h3>Heating System Breakdown</h3><p>A heating system breakdown can leave your home cold, especially in Winnipeg winters. Common causes include a faulty thermostat, ignition problems, or a malfunctioning furnace. Signs include uneven heating or no heat at all. Ignoring this can lead to frozen pipes or higher repair costs. Our team at Fern\'s Heating & Air Conditioning LTD offers rapid diagnostics and repairs to keep your home warm. Schedule a maintenance check to avoid future breakdowns!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
-            } else if (type === 'airflow') {
-                content = '<h3>Poor Airflow</h3><p>Poor airflow can make your HVAC system less effective, often due to clogged filters, blocked ducts, or a failing blower motor. You might notice weak air circulation or inconsistent temperatures. This can reduce efficiency and strain your system, increasing energy costs. Fern\'s Heating & Air Conditioning LTD can inspect and resolve these issues to improve your indoor air quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button">Contact Us for Help</a>';
+                content = '<h3>Heating System Breakdown</h3><p>Cold rooms in winter? A faulty thermostat or ignition issue might be the cause. Pyramid offers fast repairs to keep you warm. Maintenance helps avoid future breakdowns!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
+            } else if (type === 'waterflow') {
+                content = '<h3>Poor Water Flow</h3><p>Poor water flow can make your plumbing system less effective, often due to clogged pipes, valve issues, or sediment buildup. You might notice weak pressure or inconsistent flow. This can strain your system and increase water costs. Pyramid Plumbing & Heating can inspect and resolve these issues to improve your indoor water quality and comfort. Regular cleaning and maintenance are key to preventing this problem!</p><a href="#contact" class="cta-button" onclick="closeModal()">Contact Us for Help</a>';
             }
             modalContent.innerHTML = content;
             document.getElementById("myModal").style.display = "flex";
@@ -964,7 +932,7 @@
 
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
-            if (event.target === modal) {
+            if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
